@@ -1,13 +1,17 @@
 .header{
  
+   height: 5rems;
     nav{
-        padding: 24px;
+        padding: 1.0625rem 1.5rem;
     }
 
 
     &__logo{
 
         img{
+            /// rem equals px / 16
+            width: 8.8125rem;
+            height: 1.375rem;
 
         }
     }
@@ -30,22 +34,54 @@
 
     }
 
+    
+
     &__links{
+        // border: 1px solid red;
 
         a{
             font-size: $font-med;  
             color: $grayishBlue;
+            transition: color 200ms ease-in-out;
+            position: relative;
 
             &:not(:last-child){
                 margin-right: 30px;
             }
 
-        }
-    }
 
-    &__cta{
+        &::before{
+            content: "";
+            position: absolute;
+            display: block;
+            height: 5px;
+            left: 0;
+            right: 0;
+            bottom: -45px;
+            opacity: 0;
+            transition: opacity 200ms ease-in-out;
+        }
+        
+
+        &:hover{
+            color: $darkBlue;
+            &::before{
+                background: linear-gradient(to right,$limeGreen, $brightCyan);
+                opacity: 1;
+            }
+         }
+
+        }
+
+    }
+    
+    &__cta {
        font-weight: $font-med; 
        color: $white;
-       color: $grayishBlue;
+       transition: opacity 200ms ease-in-out;
+
+       &:hover{
+           opacity: 0.75;
+       }
+        }
     }
-}
